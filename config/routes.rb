@@ -1,4 +1,9 @@
 FamilyQuilt::Application.routes.draw do
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users
+  match '/', :to => 'sessions#new'
+  root :to => 'sessions#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
