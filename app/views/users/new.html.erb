@@ -1,0 +1,43 @@
+<h1>Sign up</h1>
+
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages'%>
+<div>
+	<%= f.label :first_name %><br />
+	<%= f.text_field :first_name %>
+</div>
+<div>
+	<%= f.label :last_name %><br />
+	<%= f.text_field :last_name %>
+</div>
+<div>
+	<%= f.label :birthdate%> <br />
+	<%= date_select("@user", "birthdate", :start_year => 1905, :order => [:month, :day, :year])%>
+</div>
+<div>
+	<%= f.label :gender%> <br />
+	<select name="gender">
+	<option value="1">Male</option>
+	<option value="2">Female</option>
+	</select>
+</div>
+<div>
+	<%= f.label :email%><br />
+	<%= f.text_field :email %>
+</div>
+
+<div>
+	<%= f.label :password %><br />
+	<%= f.password_field :password %>
+</div>
+
+<div>
+	<%= f.label :password_confirmation, "Confirmation" %><br />
+	<%= f.password_field :password_confirmation %>
+</div>
+
+<div>
+	<%= f.submit "Sign up"%>
+</div>
+
+<% end %>
